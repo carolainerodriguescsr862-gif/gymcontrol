@@ -1,6 +1,5 @@
 package com.csrodrigues.gymcontrol.security;
 
-import com.csrodrigues.gymcontrol.domain.entity.User;
 import com.csrodrigues.gymcontrol.domain.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,8 +17,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email)
+        return userRepository.findByEmail(email)
+                .map(UserDetailsImpl::new)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        return new UserDetailsImpl(user);
+
     }
 }

@@ -6,8 +6,11 @@ import com.csrodrigues.gymcontrol.api.mapper.UserMapper;
 import com.csrodrigues.gymcontrol.domain.entity.User;
 import com.csrodrigues.gymcontrol.domain.exception.BusinessException;
 import com.csrodrigues.gymcontrol.domain.repository.UserRepository;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -33,4 +36,13 @@ public class UserService {
     return UserMapper.toDTO(saved);
 
     }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    public List<UserResponseDTO> findAll(){
+        return userRepository.findAll()
+                .stream()
+                .map(UserMapper::toDTO)
+                .toList();
+    }
+
 }

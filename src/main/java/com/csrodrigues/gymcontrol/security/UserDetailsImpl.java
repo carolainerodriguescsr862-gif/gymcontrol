@@ -1,7 +1,6 @@
 package com.csrodrigues.gymcontrol.security;
 
 import com.csrodrigues.gymcontrol.domain.entity.User;
-import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -18,7 +17,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(user.getUserRole());
+        return List.<GrantedAuthority>of(user.getUserRole());
     }
 
     @Override
