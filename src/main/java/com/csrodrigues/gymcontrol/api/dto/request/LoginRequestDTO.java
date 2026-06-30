@@ -1,4 +1,4 @@
-package com.csrodrigues.gymcontrol.api.dto;
+package com.csrodrigues.gymcontrol.api.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 

@@ -1,4 +1,4 @@
-package com.csrodrigues.gymcontrol.api.dto;
+package com.csrodrigues.gymcontrol.api.dto.response;
 
 import com.csrodrigues.gymcontrol.domain.enums.UserRole;
 

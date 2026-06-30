@@ -1,6 +1,6 @@
 package com.csrodrigues.gymcontrol.domain.service;
 
-import com.csrodrigues.gymcontrol.api.dto.LoginRequestDTO;
+import com.csrodrigues.gymcontrol.api.dto.request.LoginRequestDTO;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;

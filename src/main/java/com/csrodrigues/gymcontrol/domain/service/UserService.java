@@ -1,7 +1,7 @@
 package com.csrodrigues.gymcontrol.domain.service;
 
-import com.csrodrigues.gymcontrol.api.dto.UserRequestDTO;
-import com.csrodrigues.gymcontrol.api.dto.UserResponseDTO;
+import com.csrodrigues.gymcontrol.api.dto.request.UserRequestDTO;
+import com.csrodrigues.gymcontrol.api.dto.response.UserResponseDTO;
 import com.csrodrigues.gymcontrol.api.mapper.UserMapper;
 import com.csrodrigues.gymcontrol.domain.entity.User;
 import com.csrodrigues.gymcontrol.domain.exception.BusinessException;
