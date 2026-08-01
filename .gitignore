@@ -1,4 +1,6 @@
 src/main/resources/application.properties
+**/src/main/resources/certs/*.pem
+
 
 HELP.md
 target/
