@@ -22,17 +22,16 @@ public class Plan {
     @Enumerated(EnumType.STRING)
     private PlanDuration duration;
     @Column(nullable = false)
-    private Boolean active = true;
+    private boolean active = true;
 
 
     public Plan(){}
 
-    public Plan(String name, String description, BigDecimal price, PlanDuration duration, Boolean active) {
+    public Plan(String name, String description, BigDecimal price, PlanDuration duration) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.duration = duration;
-        this.active = active;
     }
 
     public String getId() {
@@ -72,11 +71,11 @@ public class Plan {
         this.duration = duration;
     }
 
-    public Boolean getActive() {
+    public boolean getActive() {
         return active;
     }
 
-    public void setActive(Boolean active) {
+    public void setActive(boolean active) {
         this.active = active;
     }
 
