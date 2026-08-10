@@ -27,8 +27,7 @@ public class Plan {
 
     public Plan(){}
 
-    public Plan(String id, String name, String description, BigDecimal price, PlanDuration duration, Boolean active) {
-        this.id = id;
+    public Plan(String name, String description, BigDecimal price, PlanDuration duration, Boolean active) {
         this.name = name;
         this.description = description;
         this.price = price;
