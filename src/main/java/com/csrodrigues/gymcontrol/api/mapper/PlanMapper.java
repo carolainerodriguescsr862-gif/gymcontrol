@@ -25,4 +25,11 @@ public class PlanMapper {
                 plan.getActive()
         );
     }
+
+    public static void updateEntityFromDTO(PlanRequestDTO requestDTO, Plan plan) {
+        plan.setName(requestDTO.name());
+        plan.setDescription(requestDTO.description());
+        plan.setPrice(requestDTO.price());
+        plan.setDuration(requestDTO.duration());
+    }
 }
