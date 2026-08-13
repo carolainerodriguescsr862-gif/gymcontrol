@@ -32,7 +32,7 @@ public class PlanController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PlanResponseDTO> getAllPlansByUser(@PathVariable String id) {
+    public ResponseEntity<PlanResponseDTO> getByIdPlan(@PathVariable String id) {
         return ResponseEntity.ok().body(planService.findById(id));
     }
 

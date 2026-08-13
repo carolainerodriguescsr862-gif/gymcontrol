@@ -7,6 +7,7 @@ import com.csrodrigues.gymcontrol.domain.entity.Plan;
 import com.csrodrigues.gymcontrol.domain.exception.BusinessException;
 import com.csrodrigues.gymcontrol.domain.exception.ResourceNotFoundException;
 import com.csrodrigues.gymcontrol.domain.repository.PlanRepository;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,6 +37,7 @@ public class PlanService {
     }
 
     @Transactional
+    @PreAuthorize("hasAuthority('SCOPE_ROLE_ADMIN')")
     public PlanResponseDTO createPlan(PlanRequestDTO planRequestDTO) {
         boolean exists = planRepository.existsByNameIgnoreCase(planRequestDTO.name());
 
@@ -63,6 +65,7 @@ public class PlanService {
     }
 
     @Transactional
+    @PreAuthorize("hasAuthority('SCOPE_ROLE_ADMIN')")
     public PlanResponseDTO updateById(String id, PlanRequestDTO planRequestDTO) {
         Plan plan = findByIdOrThrow(id);
 
@@ -78,6 +81,7 @@ public class PlanService {
     }
 
     @Transactional
+    @PreAuthorize("hasAuthority('SCOPE_ROLE_ADMIN')")
     public void deleteById(String id) {
         Plan plan = findByIdOrThrow(id);
         plan.setActive(false);
