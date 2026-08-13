@@ -1,5 +1,6 @@
 package com.csrodrigues.gymcontrol.api.controller;
 
+import com.csrodrigues.gymcontrol.api.dto.request.ChangePasswordRequestDTO;
 import com.csrodrigues.gymcontrol.api.dto.request.LoginRequestDTO;
 import com.csrodrigues.gymcontrol.api.dto.request.UserRequestDTO;
 import com.csrodrigues.gymcontrol.api.dto.response.UserLoginResponse;
@@ -10,10 +11,8 @@ import com.csrodrigues.gymcontrol.domain.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -38,5 +37,11 @@ public class AuthController {
        var response = authService.login(data);
        return ResponseEntity.ok(response);
 
+    }
+
+    @PatchMapping("/password")
+    public ResponseEntity<Void> changePassword(Authentication authentication, @Valid @RequestBody ChangePasswordRequestDTO data){
+        userService.changePassword(authentication, data);
+        return ResponseEntity.noContent().build();
     }
 }

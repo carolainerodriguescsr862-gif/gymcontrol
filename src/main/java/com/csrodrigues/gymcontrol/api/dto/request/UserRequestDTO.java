@@ -1,5 +1,6 @@
 package com.csrodrigues.gymcontrol.api.dto.request;
 
+import com.csrodrigues.gymcontrol.api.validation.ValidPassword;
 import jakarta.validation.constraints.NotBlank;
 
 public class UserRequestDTO {
@@ -7,6 +8,7 @@ public class UserRequestDTO {
     @NotBlank(message = "Invalid email ")
     private String email;
     @NotBlank(message = "Password cannot be empty")
+    @ValidPassword
     private String password;
 
     public UserRequestDTO(){}
