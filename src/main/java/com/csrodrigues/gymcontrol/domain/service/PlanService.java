@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class PlanService {
@@ -65,7 +66,7 @@ public class PlanService {
     public PlanResponseDTO updateById(String id, PlanRequestDTO planRequestDTO) {
         Plan plan = findByIdOrThrow(id);
 
-            if(!planRequestDTO.name().equals(plan.getName())){
+            if(!Objects.equals(planRequestDTO.name(), plan.getName())){
                 boolean exists = planRepository.existsByNameIgnoreCaseAndIdNot(planRequestDTO.name(), id);
                 if(exists){
                     throw  new BusinessException("There is already a plan with that name!");
