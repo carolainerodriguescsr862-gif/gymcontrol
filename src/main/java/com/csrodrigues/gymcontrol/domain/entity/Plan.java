@@ -4,6 +4,8 @@ import com.csrodrigues.gymcontrol.domain.enums.PlanDuration;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -23,6 +25,8 @@ public class Plan {
     private PlanDuration duration;
     @Column(nullable = false)
     private boolean active = true;
+    @OneToMany(mappedBy = "plan")
+    private List<Enrollment> enrollments =  new ArrayList<>();
 
 
     public Plan(){}
@@ -77,6 +81,14 @@ public class Plan {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public List<Enrollment> getEnrollments() {
+        return enrollments;
+    }
+
+    public void setEnrollments(List<Enrollment> enrollments) {
+        this.enrollments = enrollments;
     }
 
     @Override
