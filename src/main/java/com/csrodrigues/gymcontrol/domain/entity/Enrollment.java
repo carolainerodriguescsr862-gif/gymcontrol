@@ -34,11 +34,11 @@ public class Enrollment {
 
     public Enrollment() {}
 
-    public Enrollment(Member member, Plan plan, EnrollmentStatus status,
+    public Enrollment(Member member, Plan plan,
                       LocalDate startDate) {
         this.member = member;
         this.plan = plan;
-        this.status = status;
+        this.status = EnrollmentStatus.ACTIVE;
         this.startDate = (startDate != null) ? startDate : LocalDate.now();
         this.endDate = this.startDate.plusDays(plan.getDuration().getDays());
     }
